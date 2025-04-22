@@ -22,7 +22,9 @@ app.get("/name", (req, res) => {
 
 // Define route for hobbies Page
 app.get("/hobbies", (req, res) => {
-    res.send("My hobbies are gaming, tinkering and learning new things");
+    var hobbies = ["gaming", "tinkering", "learning new things"];
+    var hobbiesList = hobbies.join(", ");
+    res.send(`My hobbies are ${hobbiesList}`);
 });
 
 // Define route for food Page
