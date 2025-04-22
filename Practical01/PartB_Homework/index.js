@@ -11,7 +11,7 @@ app.listen(PORT, () => {
 });
 
 // Define route for intro Page
-app.get("/name", (req, res) => {
+app.get("/intro", (req, res) => {
     res.send("My name is How Shao Yang Louis, i am 21 years old and currently studying in Ngee Ann Polytechnic");
 });
 
