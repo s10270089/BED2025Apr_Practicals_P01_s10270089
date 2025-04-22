@@ -32,6 +32,15 @@ app.get("/food", (req, res) => {
     res.send("My favourite foods are fried food, especially fish & chips and sweet stuff");
 });
 
+// Define route for student Page
+app.get("/student", (req, res) => {
+    var student = {
+        name: "How Shao Yang Louis",
+        hobbies: ["gaming", "tinkering", "learning new things"],
+        intro: "My name is How Shao Yang Louis, i am 21 years old and currently studying in Ngee Ann Polytechnic",
+    };
+    res.send(student.intro);
+});
 
 // Listen on the port after defining routes
 app.listen(PORT, () => {
