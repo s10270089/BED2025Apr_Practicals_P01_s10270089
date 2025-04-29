@@ -1,0 +1,9 @@
+Reflection:
+Based on the concepts of CRUD during PartA of the practical it has showed be that using REST APIs are very seemless and very easy to apply
+The HTTP methods of GET, POST, PUT, DELETE is very simple to understand each corresponding to their own properties, GET is retrival of information or simply put READ in CRUD, Post is the creation of information in CRUD terms, CREATE, PUT is just putting information in, so UPDATE in CRUD, and finally Delete, deletion of information so delete in CRUD
+Not necessarily any challenges as this is a reflection upon my modules in ITE
+
+Q&A:
+POST is for making brand-new things while PUT is for changing or replacing something that already exists
+
+The Status code when updaing something that doesn't exist is 404 Not Found, meaning there is nothing here to update
