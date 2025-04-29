@@ -26,7 +26,22 @@ app.post("/foods", (req, res) => {
       .status(201)
       .json({ message: "Food created successfully.", food: newFood });
   });
-
+  app.get("/foods", (req, res) => {
+    const { name } = req.query;
+    let results = foods;
+    if (name) {
+      results = foods.filter((f) => f.name.includes(name));
+      return res.json({
+        message: `Found ${results.length} food(s) matching name filter.`,
+        foods: results,
+      });
+    }
+    res.json({
+      message: `Retrieved all foods (${results.length}).`,
+      foods: results,
+    });
+  });
+  
   app.put("/foods/:id", (req, res) => {
     const foodId = Number(req.params.id);
     const { name, calories } = req.body;
