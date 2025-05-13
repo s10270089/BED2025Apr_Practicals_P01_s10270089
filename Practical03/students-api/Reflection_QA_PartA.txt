@@ -1,0 +1,1 @@
+Understanding each route handler compared to when the database logic was in separate function is quite simple, MSSQL and EXPRESS help simplify things even more to help with my understanding. If any bugs where found we would have to backtrace through comments on where the error is, for example if there is a error on the post method we would go onto our post code.
