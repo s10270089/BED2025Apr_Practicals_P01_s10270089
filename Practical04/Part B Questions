@@ -1,0 +1,33 @@
+Reflect on the process of refactoring the API code into the MVC structure by answering the following questions:
+
+1. What were the main changes you made to refactor the code into MVC architecture? Describe how you moved code between files and folders.
+The main change was trying to reorganise the code to follow the Model-View-Controller pattern. By moving the database logic into separate Model files request-handling logic into Controller files, and defined routes in Route files. The main app.js file was simplified to handle only server setup, middleware, and routing. Folder structures were also introduced to separate each component logically.
+
+2. What challenges did you face during the refactoring process?
+Key challenges include, identifying dependencies across functions and ensuring nothing broke during separation and rewriting import or export statement for compatibilty across files
+
+3. How does the MVC structure change the way you think about adding new features or modifying existing ones compared to the previous non-MVC structure?
+MVC introduces a more systematic approach including new features that are easier to add by creating new controllers and models without cluttering app.js, updates to business logic or database structure to only require changes in the model, without touching the controller or route layers
+
+4. In what specific ways do you think the MVC version is more organized or easier to understand and maintain than the previous version where all logic was in app.js?
+Clear file separation to improve readability for developers to immediately locate relavant code and encourages reuse of functions through shared models across multiple controllers
+
+5. Explain how separating concerns (putting database logic in the Model and request handling in the Controller) makes the code better from a development perspective.
+Models focus purely on data access and business rules, while Controllers handle HTTP request or response logic, reduces risk of bugs when making changes as logic is compartmentalised and promotes clean architecture
+
+
+Task 2: Reflecting on Robustness & Security
+Reflect on the impact of validation, error handling, and parameterized queries by answering the following questions:
+
+1. How does implementing input validation middleware make the API more reliable and user-friendly? Provide an example of invalid input that your validation would now handle.
+Implementing input validation middleware can improve API reliability by ensuring valid and expected data that reaches the core logic, reducing bugs and crashed. It enhances user-frendliness by returning clear and immediate error messages when input is incorrect, guiding users to correct their mistakes
+Example:
+If a user attempts to register with invalid email like "louis@com", validation middleware would catch this and return a 400 Bad Request with a helpful message like: "Email must be a valid email address." This prevents malformed data from entering the system and improves overall API robustness
+
+2. Explain in your own words how parameterized queries prevent SQL injection attacks. Why is this approach fundamentally more secure than building SQL query strings by concatenating variable data?
+Parameterized queries separate SQL logic from user input by using placeholders and binding input values separately. This ensures user input is treated as data, not code, regardless of its content.
+For example, in a vulnerable system, a query like SELECT * FROM users WHERE username = '${userInput}' could be manipulated if someone inputs admin' or '1' = 1, resulting in a query that always returns true and potentially exposes all user records. Howevrer with a parameterized query such as SELECT * FROM users  WHERE username = ?, and the input bound securely, the database engine understands the input purely as a string
+
+3. Consider a potential security risk for an API (other than SQL injection, e.g., brute-force attacks, exposing sensitive data in responses). How might robust error handling (like not showing detailed error messages to the client) help mitigate such a risk?
+A common API security risk is exposing sensitive data through error messages, such as database errors, stack traces, or internal logic
+This can be mitigated with robust error handling, by sending a generic error response to clients such as "something went wrong. Please try again Later." while logging detailed error on the server side, we can avoid leaking implementation details, reudce attack surface and prevent potential attackers from gaining insights to exploit.
