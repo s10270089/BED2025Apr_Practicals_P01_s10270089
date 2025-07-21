@@ -146,14 +146,4 @@ editBookForm.addEventListener("submit", async (event) => {
         messageDiv.style.color = "red";
         loadingMessageDiv.textContent = "";
     }
-  // TODO: Collect updated data from form fields (editTitleInput.value, editAuthorInput.value)
-  // TODO: Get the book ID from the hidden input (bookIdInput.value)
-  // TODO: Implement the fetch PUT request to the API endpoint /books/:id
-  // TODO: Include the updated data in the request body (as JSON string)
-  // TODO: Set the 'Content-Type': 'application/json' header
-  // TODO: Handle the API response (check status 200 for success, 400 for validation, 404 if book not found, 500 for server error)
-  // TODO: Provide feedback to the user using the messageDiv (success or error messages)
-  // TODO: Optionally, redirect back to the index page on successful update
 });
-
-// --- End of code for learners to complete ---

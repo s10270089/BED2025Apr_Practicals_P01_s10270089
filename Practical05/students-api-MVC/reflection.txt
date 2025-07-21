@@ -1,0 +1,18 @@
+Reflection and Review
+1. Separation of Concerns
+Model: Handles data operations, interacts with the database, and provides data in a structured format like JSON.
+
+View: The frontend (HTML, JavaScript) that presents the data and provides user interactions. It can be served via the static file server and fetches data from the API.
+
+Controller: Contains the business logic that processes user input, interacts with the model, and sends data to the view.
+
+Having a separate frontend view allows the backend API to focus on data management and business logic without being cluttered with presentation concerns. It enables a clear separation between data handling (backend) and user interaction (frontend).
+
+2. Robustness and Security
+The API's robustness improved as I integrated more complex features, including error handling, validation, and parameterized queries. The structure from Practical 03 (simple API) to Practical 05 (full-stack application) made it easier to spot bugs and handle edge cases as I expanded functionality and added layers to my architecture.
+
+3. Challenges and Problem Solving
+The most challenging aspect was ensuring the frontend handled CRUD operations correctly, especially when interacting with the API for operations like updating or deleting student records. Initially, I had trouble managing the flow of data between frontend forms and the backend API, but debugging tools like browser dev tools helped a lot.
+
+4. New Feature Addition
+The MVC structure with a separate View layer makes it easier to add features, such as adding a "genre" field to books. The Model is updated to reflect the new data structure, and the View can be extended by adding appropriate input fields for the "genre". The Controller will simply handle the data passing between the model and the view.

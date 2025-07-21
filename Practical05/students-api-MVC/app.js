@@ -3,6 +3,7 @@ const express = require('express');
 const sql = require('mssql');
 const dotenv = require('dotenv');
 
+app.use(express.static(path.join(__dirname, 'public')));
 // Database configuration
 dotenv.config();
 
