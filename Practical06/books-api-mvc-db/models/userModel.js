@@ -38,11 +38,11 @@ async function getUsersWithBooks() {
   try {
     connection = await sql.connect(dbConfig);
     const query = `
-    SELECT u.id AS user_id, u.username, u.email, b.id AS book_id, b.title, b.author
-    FROM Users u
-    LEFT JOIN UserBooks ub ON ub.user_id = u.id
-    LEFT JOIN Books b ON ub.book_id = b.id
-    ORDER BY u.username;
+      SELECT u.id AS user_id, u.username, u.email, b.id AS book_id, b.title, b.author
+      FROM Users u
+      LEFT JOIN UserBooks ub ON ub.user_id = u.id
+      LEFT JOIN Books b ON ub.book_id = b.id
+      ORDER BY u.username;
     `;
     const result = await connection.request().query(query);
 
@@ -68,8 +68,15 @@ async function getUsersWithBooks() {
 
     return Object.values(usersWithBooks);
   } catch (error) {
+    console.error("Database error in getUsersWithBooks:", error);
     throw error;
   } finally {
     if (connection) await connection.close();
   }
 }
+
+module.exports = {
+    createUser,
+    searchUsers,
+    getUsersWithBooks,
+};

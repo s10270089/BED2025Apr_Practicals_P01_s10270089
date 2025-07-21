@@ -25,6 +25,7 @@ app.use(express.urlencoded({ extended: true })); // Parse URL-encoded request bo
 // When a request comes in for a static file (like /index.html, /styles.css, /script.js),
 // Express will look for it in the 'public' folder relative to the project root.
 app.use(express.static(path.join(__dirname, "public")));
+
 const userController = require("./controllers/userController");
 
 app.get("/users/with-books", userController.getUsersWithBooks);
