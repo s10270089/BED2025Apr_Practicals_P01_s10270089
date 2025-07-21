@@ -28,8 +28,9 @@ async function searchUsers(req, res) {
 async function getUsersWithBooks(req, res) {
   try {
     const users = await User.getUsersWithBooks();
-    res.json(users);
+    res.json(users); // Return users with books as a response
   } catch (error) {
+    console.error("Error in getUsersWithBooks:", error);
     res.status(500).json({ message: "Error fetching users with books" });
   }
 }
